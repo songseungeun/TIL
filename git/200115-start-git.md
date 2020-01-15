@@ -25,6 +25,12 @@ $ git remote get-url origin
 
 ## `git clone`으로 프로젝트 시작하기
 
+```shell
+$ git clone URL
+$ .gitignore
+$ git remote
+$ git pull origin master
+```
 
 ## 우리가 마크다운을 쓰는 이유
 
