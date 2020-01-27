@@ -1,0 +1,30 @@
+/* 기본 박스 사이징 재설정 (width에 border-width와 padding을 포함하여 계산) */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* FLOAT CLEARFIX */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+/* 숨김 콘텐츠 */ 
+.a11y-hidden, legend {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    margin: -1px;
+    clip: rect(0,0,0,0);
+    clip-path: polygon(0 0, 0 0, 0 0);
+}
