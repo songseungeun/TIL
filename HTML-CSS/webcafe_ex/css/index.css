@@ -106,3 +106,46 @@ header.header-nav {
     text-decoration: underline;
     /* color: #ccc; */
 }
+/* MAIN BANNER */
+
+section.main-bn {
+    background-color: #ccc;
+    min-height: 180px;
+}
+
+
+
+/* VISUAL */
+
+section.visual {
+    background-color: #fff;
+    min-height: 800px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+.group {
+    /* background-color: #ddd; */
+    border: 1px solid red;
+    min-height: 300px;
+    margin-right:10px;
+}
+.group:last-child {
+    margin-right: 0;
+}
+.group1 {
+    flex-grow: 1;
+}
+/* LOGIN */
+
+
+
+
+
+.group2 {
+    flex-grow: 2;
+}
+.group3 {
+    flex-grow: 1;
+}
