@@ -18,8 +18,8 @@
     float: right;
 }
 
-/* 숨김 콘텐츠 */ 
-.a11y-hidden, legend {
+/* 숨김 콘텐츠 , legend */ 
+.a11y-hidden {
     position: absolute;
     width: 1px;
     height: 1px;
