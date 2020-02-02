@@ -1,0 +1,61 @@
+
+.selector1, .selector2 {
+    width: 1000px;
+}
+.selector1 li, .selector3{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 30px;
+    background-color: #333;
+    text-align: center;
+    line-height: 30px;
+}
+.selector1 a, .selector3 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* 첫 번째 줄 */
+/* 3번째 선택하기 */
+/* :nth-child(n) 형제 요소 중 n번째 선택 */
+/* li 형제 중 3번째 */
+.selector1 li:nth-child(3) {
+    background-color: blue;
+}
+
+/* 5번째 이후 모두 선택 */
+.selector1 li:nth-child(n+5) {
+    background-color: cadetblue;
+}
+
+/* 3번째 아래 글씨색 바꾸기 */
+.selector1 li:nth-child(-n+3) a {
+    color: red;
+}
+
+/* 속성 선택자 중에 짝수 선택 */
+.selector1 li:nth-child(even) a {
+    text-shadow: 1px 1px 2px violet;
+}
+
+/* 두 번째 줄 */
+/* p중에 3번째인 6번 선택하기 */
+.selector2 p:nth-of-type(3) {
+    background-color: cornflowerblue;
+}
+
+/* 속성 선택자 중에 홀수 선택 */
+[class="selector3"]:nth-child(odd) a {
+    color: red;
+}
+
+/* + 인접형제 바로 다음에 있는 형제 선택 */
+.selector4 + .selector5 {
+    background-color: turquoise;
+}
+
+/* ~ 다음형제 모두 선택 */
+div ~ p {
+    border: 3px solid blue;
