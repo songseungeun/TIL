@@ -180,6 +180,9 @@ section.visual {
     width: 55px;
     height: 57px;
     margin-top: -30px;
+    background-color: #2e5295;
+    color: #fff;
+    border: 1px solid #fff;
 }
 
 .member {
@@ -189,6 +192,7 @@ section.visual {
 }
 .member a{
     font-size: 0.8rem;
+    margin-left: 20px;
 }
 
 
