@@ -14,14 +14,15 @@ score2 = 80;
 
 var score2;
 
-console.log(score2);
+console.log(score2); // 80
 
 // 예제 3 값의 교환
 
 var x = 1;
 var y = 2;
 
-var x = 2;
-var y = 1;
+var z = x;
+var x = y;
+var y = z;
 
 console.log(x, y);
