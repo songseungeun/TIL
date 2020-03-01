@@ -123,3 +123,112 @@ for (var i = 0; i < 5; i++) {
 }
 
 console.log(result);
+
+// 12. 삼각형 출력하기 - pattern 2
+
+// 다음을 참고하여 *(별)로 트리를 문자열로 완성하라. 
+// 개행문자(‘\n’)를 사용하여 개행한다. 
+// 완성된 문자열의 마지막은 개행문자(‘\n’)로 끝나도 관계없다.
+
+var star = "*";
+var newLine = "\n";
+var result = "";
+
+for (var i = 0; i < 5; i++) {
+  for (var j = 0; j < 6; j++) {
+    if (i > j) {
+      result += " ";
+    } else if (j === 5) {
+      result += newLine;
+    } else {
+      result += star;
+    }
+  }
+}
+
+console.log(result);
+
+// 13. 삼각형 출력하기 - pattern 3
+
+// 다음을 참고하여 *(별)로 트리를 문자열로 완성하라. 
+// 개행문자(‘\n’)를 사용하여 개행한다. 
+// 완성된 문자열의 마지막은 개행문자(‘\n’)로 끝나도 관계없다.
+
+var star2 = "*";
+var result2 = "";
+var newLine2 = "\n";
+for (var m = 5; m > 0; m--) {
+  for (var n = 0; n < m + 1; n++) {
+    if (m > n) {
+      result2 += star2;
+    } else {
+      result2 += newLine2;
+    }
+  }
+}
+
+console.log(result2);
+
+
+// 14. 삼각형 출력하기 - pattern 4
+
+// 다음을 참고하여 *(별)로 트리를 문자열로 완성하라. 
+// 개행문자(‘\n’)를 사용하여 개행한다. 
+// 완성된 문자열의 마지막은 개행문자(‘\n’)로 끝나도 관계없다.
+
+var star = '*';
+var result = '';
+var newLine = '\n';
+
+for (var i = 0; i < 5; i++) {
+  for (var j = 0; j <= 6; j++) {
+    if (5 - i > j) {
+      result += ' ';
+    } else if (j === 6) {
+      result += newLine;
+    } else {
+      result += star;
+    }
+  }
+}
+
+console.log(result);
+
+// 15. 정삼각형 출력하기
+
+var star = "*";
+var newLine = "\n";
+var result = "";
+
+for (var i = 0; i < 5; i++) {
+  for (var j = 0; j < i + 6; j++) {
+    if (i - 4 < -j) {
+      result += " ";
+    } else if (j === i + 5) {
+      result += newLine;
+    } else {
+      result += star;
+    }
+  }
+}
+console.log(result);
+
+
+// 16. 역정삼각형 출력하기
+
+var star = "*";
+var newLine = "\n";
+var result = "";
+
+for (var i = 5; i > 0; i--) {
+  for (var j = 0; j < i + 5; j++) {
+    if (i - 5 < -j) {
+      result += " ";
+    } else if (j === i + 4) {
+      result += newLine;
+    } else {
+      result += star;
+    }
+  }
+}
+console.log(result);
