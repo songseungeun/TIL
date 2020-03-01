@@ -15,28 +15,22 @@ for (var i = 0; i < 10; i++) {
   }
 }
 
-for (var j = 0; j < 10; j++) {
-  if ((j + 1) % 2) {
-    console.log(j);
-  }
-}
-
 // 3. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 문자열로 출력하시오.
 
-var p = "";
-for (var m = 0; m < 10; m++) {
-  if (!(m % 2)) {
-    p += `${m}`;
+var even = '';
+for (var i = 0; i < 10; i++) {
+  if (!(i % 2)) {
+    even += `${i}`;
   }
 }
-console.log(p);
+console.log(even);
 
 
 // 4. for문을 사용하여 0부터 10미만의 정수 중에서 홀수만을 큰수부터 출력하시오.
 
-for (var n = 9; n > 0; n--) {
-  if (n % 2) {
-    console.log(n);
+for (var i = 10; i > 0; i--) {
+  if (i % 2) {
+    console.log(i);
   }
 }
 
@@ -62,36 +56,37 @@ while (b > 0) {
 
 // 7. for 문을 사용하여 0부터 10미만의 정수의 합을 출력하시오.
 
-var d = 0;
+var sum = 0;
 
-for (var c = 0; c < 10; c++) {
-  d += c;
+for (var i = 0; i < 10; i++) {
+  sum += i;
 }
 
-console.log(d);
+console.log(sum);
 
 // 8. 1부터 20 미만의 정수 중에서 2 또는 3의 배수가 아닌 수의 총합을 구하시오.
 
-var e = 0;
+var sum = 0;
 
-for (var f = 0; f < 20; f++) {
-  if (!!(f % 2 && f % 3)) {
-    e += f;
+for (var i = 0; i < 20; i++) {
+  if (i % 2 && i % 3) {
+    sum += i;
   }
 }
 
-console.log(e);
+console.log(sum);
+
 // 9. 1부터 20 미만의 정수 중에서 2 또는 3의 배수인 수의 총합을 구하시오.
 
-var h = 0;
+var sum = 0;
 
-for (var g = 0; g < 20; g++) {
-  if (!(g % 2 && g % 3)) {
-    h += g;
+for (var i = 0; i < 20; i++) {
+  if (!(i % 2 && i % 3)) {
+    sum += i;
   }
 }
 
-console.log(x);
+console.log(sum);
 
 // 10. 두 개의 주사위를 던졌을 때, 눈의 합이 6이 되는 모든 경우의 수를 출력하시오.
 
@@ -108,9 +103,9 @@ for (var y = 0; y < 6; y++) {
 // 개행문자(‘\n’)를 사용하여 개행한다. 
 // 완성된 문자열의 마지막은 개행문자(‘\n’)로 끝나도 관계없다.
 
-var star = "*";
-var newLine = "\n";
-var result = "";
+var star = '*';
+var newLine = '\n';
+var result = '';
 
 for (var i = 0; i < 5; i++) {
   for (var j = 0; j < i + 2; j++) {
@@ -130,14 +125,14 @@ console.log(result);
 // 개행문자(‘\n’)를 사용하여 개행한다. 
 // 완성된 문자열의 마지막은 개행문자(‘\n’)로 끝나도 관계없다.
 
-var star = "*";
-var newLine = "\n";
-var result = "";
+var star = '*';
+var newLine = '\n';
+var result = '';
 
 for (var i = 0; i < 5; i++) {
   for (var j = 0; j < 6; j++) {
     if (i > j) {
-      result += " ";
+      result += ' ';
     } else if (j === 5) {
       result += newLine;
     } else {
@@ -154,20 +149,21 @@ console.log(result);
 // 개행문자(‘\n’)를 사용하여 개행한다. 
 // 완성된 문자열의 마지막은 개행문자(‘\n’)로 끝나도 관계없다.
 
-var star2 = "*";
-var result2 = "";
-var newLine2 = "\n";
-for (var m = 5; m > 0; m--) {
-  for (var n = 0; n < m + 1; n++) {
-    if (m > n) {
-      result2 += star2;
+var star = '*';
+var newLine = '\n';
+var result = '';
+
+for (var i = 5; i > 0; i--) {
+  for (var j = 0; j < i + 1; j++) {
+    if (i > j) {
+      result += star;
     } else {
-      result2 += newLine2;
+      result += newLine;
     }
   }
 }
 
-console.log(result2);
+console.log(result);
 
 
 // 14. 삼각형 출력하기 - pattern 4
@@ -181,10 +177,10 @@ var result = '';
 var newLine = '\n';
 
 for (var i = 0; i < 5; i++) {
-  for (var j = 0; j <= 6; j++) {
-    if (5 - i > j) {
+  for (var j = 0; j < 6; j++) {
+    if (4 - i > j) {
       result += ' ';
-    } else if (j === 6) {
+    } else if (j === 5) {
       result += newLine;
     } else {
       result += star;
@@ -196,14 +192,14 @@ console.log(result);
 
 // 15. 정삼각형 출력하기
 
-var star = "*";
-var newLine = "\n";
-var result = "";
+var star = '*';
+var result = '';
+var newLine = '\n';
 
 for (var i = 0; i < 5; i++) {
   for (var j = 0; j < i + 6; j++) {
     if (i - 4 < -j) {
-      result += " ";
+      result += ' ';
     } else if (j === i + 5) {
       result += newLine;
     } else {
@@ -211,19 +207,20 @@ for (var i = 0; i < 5; i++) {
     }
   }
 }
+
 console.log(result);
 
 
 // 16. 역정삼각형 출력하기
 
-var star = "*";
-var newLine = "\n";
-var result = "";
+var star = '*';
+var result = '';
+var newLine = '\n';
 
 for (var i = 5; i > 0; i--) {
   for (var j = 0; j < i + 5; j++) {
     if (i - 5 < -j) {
-      result += " ";
+      result += ' ';
     } else if (j === i + 4) {
       result += newLine;
     } else {
