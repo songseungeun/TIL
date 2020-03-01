@@ -75,13 +75,23 @@ console.log(d);
 var e = 0;
 
 for (var f = 0; f < 20; f++) {
-  if (2n 3n ){
-
+  if (!!(f % 2 && f % 3)) {
+    e += f;
   }
 }
 
 console.log(e);
 // 9. 1부터 20 미만의 정수 중에서 2 또는 3의 배수인 수의 총합을 구하시오.
+
+var h = 0;
+
+for (var g = 0; g < 20; g++) {
+  if (!(g % 2 && g % 3)) {
+    h += g;
+  }
+}
+
+console.log(x);
 
 // 10. 두 개의 주사위를 던졌을 때, 눈의 합이 6이 되는 모든 경우의 수를 출력하시오.
 
@@ -98,4 +108,18 @@ for (var y = 0; y < 6; y++) {
 // 개행문자(‘\n’)를 사용하여 개행한다. 
 // 완성된 문자열의 마지막은 개행문자(‘\n’)로 끝나도 관계없다.
 
-console.log('\u002A');
+var star = "*";
+var newLine = "\n";
+var result = "";
+
+for (var i = 0; i < 5; i++) {
+  for (var j = 0; j < i + 2; j++) {
+    if (i >= j) {
+      result += star;
+    } else {
+      result += newLine;
+    }
+  }
+}
+
+console.log(result);
