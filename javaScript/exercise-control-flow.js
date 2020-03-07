@@ -152,11 +152,8 @@ for (var y = 0; y < 6; y++) {
 }
 
 // 11. 삼각형 출력하기 - pattern 1
-// *(별)로 높이가 5인(var line = 5) 삼각형을 문자열로 완성하라. 
-// 개행문자(‘\n’)를 사용하여 개행한다. 
-// 완성된 문자열의 마지막은 개행문자(‘\n’)로 끝나도 관계없다.
 
-// for 안에 for
+// for
 let star = "*";
 let newLine = "\n";
 let result = "";
@@ -165,6 +162,21 @@ for (let i = 0; i < 5; i++) {
   for (let j = 0; j <= i; j++) {
     result += star;
   }
+  result += newLine;
+}
+
+console.log(result);
+
+// break 사용해서 마지막 개행 없애기
+let star = "*";
+let newLine = "\n";
+let result = "";
+
+for (let i = 0; i < 5; i++) {
+  for (let j = 0; j <= i; j++) {
+    result += star;
+  }
+  if (i === 4) break;
   result += newLine;
 }
 
@@ -187,7 +199,7 @@ for (var i = 0; i < 5; i++) {
 
 console.log(result);
 
-// 삼항조건연산자
+// 삼항 조건 연산자
 var star = "*";
 var newLine = "\n";
 var result = "";
@@ -201,16 +213,10 @@ for (var i = 0; i < 5; i++) {
 console.log(result);
 
 
-
-
-
 // 12. 삼각형 출력하기 - pattern 2
 
-// 다음을 참고하여 *(별)로 트리를 문자열로 완성하라. 
-// 개행문자(‘\n’)를 사용하여 개행한다. 
-// 완성된 문자열의 마지막은 개행문자(‘\n’)로 끝나도 관계없다.
+// for : break 사용해서 마지막 개행 없애기.
 
-// for 2개
 let star = "*";
 let newLine = "\n";
 let result = "";
@@ -222,6 +228,7 @@ for (let i = 0; i < 5; i++) {
   for (let j = 5; j > i; j--) {
     result += star;
   }
+  if (i === 4) break;
   result += newLine;
 }
 
@@ -249,11 +256,7 @@ console.log(result);
 
 // 13. 삼각형 출력하기 - pattern 3
 
-// 다음을 참고하여 *(별)로 트리를 문자열로 완성하라. 
-// 개행문자(‘\n’)를 사용하여 개행한다. 
-// 완성된 문자열의 마지막은 개행문자(‘\n’)로 끝나도 관계없다.
-
-// for 2개
+// for
 let star = "*";
 let newLine = "\n";
 let result = "";
@@ -262,6 +265,21 @@ for (let i = 5; i > 0; i--) {
   for (let j = 0; j < i; j++) {
     result += star;
   }
+  result += newLine;
+}
+
+console.log(result);
+
+// for 마지막 개행 없애기
+let star = "*";
+let newLine = "\n";
+let result = "";
+
+for (let i = 5; i > 0; i--) {
+  for (let j = 0; j < i; j++) {
+    result += star;
+  }
+  if (i === 1) break;
   result += newLine;
 }
 
@@ -286,11 +304,7 @@ console.log(result);
 
 // 14. 삼각형 출력하기 - pattern 4
 
-// 다음을 참고하여 *(별)로 트리를 문자열로 완성하라. 
-// 개행문자(‘\n’)를 사용하여 개행한다. 
-// 완성된 문자열의 마지막은 개행문자(‘\n’)로 끝나도 관계없다.
-
-// for 2개 
+// for
 let star = "*";
 let newLine = "\n";
 let result = "";
@@ -302,6 +316,24 @@ for (let i = 0; i < 5; i++) {
   for (let k = 0; k <= i; k++) {
     result += star;
   }
+  result += newLine;
+}
+
+console.log(result);
+
+// 마지막 개행 없애기
+let star = "*";
+let newLine = "\n";
+let result = "";
+
+for (let i = 0; i < 5; i++) {
+  for (let j = 4; j > i; j--) {
+    result += " ";
+  }
+  for (let k = 0; k <= i; k++) {
+    result += star;
+  }
+  if (i === 4) break;
   result += newLine;
 }
 
@@ -346,6 +378,24 @@ for (var i = 0; i < 5; i++) {
 
 console.log(result);
 
+// for, break
+var star = "*";
+var result = "";
+var newLine = "\n";
+
+for (let i = 0; i < 5; i++) {
+  for (let k = 4; k > i; k--) {
+    result += " ";
+  }
+  for (let j = 0; j <= i * 2; j++) {
+    result += star;
+  }
+  if (i === 4) break;
+  result += newLine;
+}
+
+console.log(result);
+
 
 // 16. 역정삼각형 출력하기
 
@@ -364,4 +414,22 @@ for (var i = 5; i > 0; i--) {
     }
   }
 }
+console.log(result);
+
+//
+var star = "*";
+var result = "";
+var newLine = "\n";
+
+for (let i = 0; i < 5; i++) {
+  for (let k = 0; k < i; k++) {
+    result += " ";
+  }
+  for (let j = 0; j < 9 - i * 2; j++) {
+    result += star;
+  }
+  if (i === 4) break;
+  result += newLine;
+}
+
 console.log(result);
