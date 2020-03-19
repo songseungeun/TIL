@@ -3,7 +3,7 @@
 
 var x = 15;
 
-if (20 > x && x > 10) {
+if (20 > x > 10) {
   console.log(x);
 }
 
@@ -248,7 +248,6 @@ for (let i = 0; i < 5; i++) {
   for (let j = 5; j > i; j--) {
     result += star;
   }
-  if (i === 4) break;
   result += newLine;
 }
 
