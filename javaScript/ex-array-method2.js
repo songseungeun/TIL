@@ -19,6 +19,7 @@ if (foods.indexOf('orange') === -1) {
 }
 console.log(foods); // [ 'apple', 'banana', 'orange' ]
 
+const foods = ['apple', 'banana', 'orange'];
 const foods2 = ['pizza', 'cola', 'fineapple'];
 
 function fruitsAdd(fruits) {
@@ -133,3 +134,18 @@ console.log(result6); // [ 1, 2, 3, 4, 5, 6 ]
 // ES6 스프레드 문법
 let result7 = [...[1, 2], ...[3, 4]];
 console.log(result7);
+
+// Array.prototype.splice
+// .splice(start, deleteCount, items)
+// mutator method
+const arrSplice = [1, 2, 3, 4];
+const result8 = arrSplice.splice(1, 2, 20, 30); // 예상 index1인 2부터 2개인 2, 3이 지워지고 20, 30이 들어간다
+
+console.log(result8); // 제거한 요소가 반환 2, 3
+console.log(arrSplice); // 예상했던 결과인 1, 20, 30, 4가 나옴
+
+const result9 = arrSplice.splice(1); // 제거할 요소를 생략하면 첫번째 인수로 전달된 시작인덱스부터 모든 요소 제거
+
+console.log(arrSplice); // [1] 남은 요소 원본 배열 반환
+console.log(result9); [20, 30, 4]
+
