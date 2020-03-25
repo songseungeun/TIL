@@ -88,3 +88,15 @@ let a = map.call('Hello World', function(x) {return x.charCodeAt(0);
 });
 
 console.log(a);
+
+const oneTwoThree = [1, 2, 3];
+let result;
+
+result = oneTwoThree.map((v) => {
+  if (v % 2) {
+    return '홀수';
+  }
+  return '짝수';
+});
+
+console.log(result);
