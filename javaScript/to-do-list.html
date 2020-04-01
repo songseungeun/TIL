@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>to do list</title>
+  <style>
+    body {
+      padding: 30px;
+    }
+    body * {
+      box-sizing: border-box;
+    }
+    .todosInput {
+      width: 300px;
+      padding: 10px;
+      font-size: 18px;
+    }
+    .todosList {
+      list-style-type: none;
+      margin: 30px 0 0 0;
+      padding: 0;
+      font-size: 18px;
+      line-height: 35px;
+    }
+    .todosList > li {
+    }
+    .todosList input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+    }
+    .todoDetail {
+      margin: 0 10px 0 0;
+    }
+    .remove {
+      width: 20px;
+      height: 20px;
+    }
+
+  </style>
+</head>
+<body>
+  <input type="text" class="todosInput" placeholder="enter to do">
+  <ul class="todosList">
+  </ul>
+
+<script>
+  const $todosList = document.querySelector('.todosList');
+  const $todosInput = document.querySelector('.todosInput');
+
+  function todoSave(e) {
+    if (e.keyCode !== 13) {
+      return;
+    } else if (e.keyCode === 13 && $todosInput.value === '') {
+      alert('내용을 입력해주세요.');
+      return;
+    }
+
+    $todosList.innerHTML += `
+    <li>
+      <input type="checkbox">
+        <span>${$todosInput.value}</span>
+      <button class="remove">X</button>
+    </li>`;
+
+    $todosInput.value = '';
+  }
+
+  function todoCheck(e) {
+    e.target.nextElementSibling.style.textDecoration = e.target.checked ? 'line-through' : '';
+  }
+
+  function todoRemove(e) {
+    if (!e.target.matches('.todosList > li > button.remove')) return;
+    $todosList.removeChild(e.target.parentNode);
+  }
+
+  $todosInput.addEventListener('keyup', todoSave);
+  $todosList.addEventListener('change', todoCheck);
+  $todosList.addEventListener('click', todoRemove);
+</script>
+</body>
+</html>
