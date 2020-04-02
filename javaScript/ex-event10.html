@@ -11,8 +11,8 @@
       padding: 0;
     }
 
-    #fruits li {
-      width: 100px;
+    #fruits > li {
+      margin-right: 30px;
       cursor: pointer;
     }
 
@@ -36,18 +36,51 @@
     const $fruits = document.getElementById('fruits');
     const $msg = document.querySelector('.msg');
 
-    function activate({ target }) {
-      if (!target.matches('#fruits > li')) return;
+    $fruits.onclick = e => {
+      if (!e.target.matches('#fruits > li')) return;
+
+      // console.log(e.target.id);
+
+      // console.log([...$fruits.children]);
 
       [...$fruits.children].forEach($fruit => {
-        $fruit.classList.toggle('active', $fruit === target);
-        $msg.textContent = target.id;
+
+        $fruit.classList.toggle('active', $fruit === e.target);
+
+        // if ($fruit === e.target) {
+        //   $fruit.classList.add('active');
+        // } else {
+        //   $fruit.classList.remove('active');
+        // }
+
+        // if ($fruit === e.target) $fruit.style.textDecoration = 'underline';
+        // else $fruit.style.textDecoration = '';
       });
+
+     
+      $msg.textContent = e.target.id;
     }
 
-    $fruits.onclick = activate;
+
+
 
     // function activate({ target }) {
+    //   if (!target.matches('#fruits > li')) return;
+
+    //   [...$fruits.children].forEach($fruit => {
+    //     $fruit.classList.toggle('active', $fruit === target);
+    //     $msg.textContent = target.id;
+    //   });
+    // }
+
+    // $fruits.onclick = activate;
+
+    // function activate({ target }) {
+    //   console.log(target);
+    //   console.log(target.id);
+    //   console.log($fruits.children);
+    //   console.log($fruits.classList.toggle);
+
     //   [ ...$fruits.children].forEach($fruit => {
     //     $fruit.classList.toggle('active', $fruit === target);
     //     $msg.textContent = target.id;
