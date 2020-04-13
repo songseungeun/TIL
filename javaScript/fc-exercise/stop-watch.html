@@ -31,6 +31,7 @@
       background: #f44336;
       color: aliceblue;
     }
+
   </style>
   <title>Stop watch</title>
 </head>
@@ -43,30 +44,38 @@
     const $display = document.querySelector('.display');
     const $control = document.querySelector('.control');
 
+    let minute = 0;
+    let second = 0;
+    let milliseconds = 0;
 
-    const stopWatch = ({ target }) => {
-      $control.textContent = 'Stop';
+    let stopWatchState = true;
 
-      let minute = 0;
-      let second = 0;
-      let milliseconds = 0;
-
-    
-      setInterval(() => {
-        if (milliseconds > 99) {
-          milliseconds = 0;
-          second += 1;
-
-          if (second > 99) {
-            second = 0;
-            minute += 1;
+    let timer = setInterval(function () {
+      if (!stopWatchState) {
+        milliseconds = milliseconds < 9 ? `0` + `${++milliseconds}` : ++milliseconds;
+        if (milliseconds > 59) {
+            milliseconds = 0;
+            second = second < 9 ? `0`+`${++second}` : ++second;
+            if (second > 59) {
+              second = 0;
+              minute = minute < 9 ? `0`+`${++minute}` : ++minute;
+            }
           }
-        }
-        milliseconds += 1;
-
         $display.textContent = `${minute}:${second}:${milliseconds}`;
-      }, 10);
-    };
+      }
+    }, 10);
+
+    function stopWatch({ target }) {
+      if (!stopWatchState) {
+        $control.textContent = 'Start';
+        clearInterval(timer);
+        stopWatchState = true;
+      }
+
+      $control.textContent = 'Stop';
+      timer;
+      stopWatchState = false;
+    }
 
     $control.addEventListener('click', stopWatch);
   </script>
