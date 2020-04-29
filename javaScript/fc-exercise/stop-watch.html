@@ -47,34 +47,32 @@
     let minute = 0;
     let second = 0;
     let milliseconds = 0;
+    let timer;
+    let stopWatchState = false;
+    let O = (num) => num < 10 ? `0${num}` : num;
 
-    let stopWatchState = true;
-
-    let timer = setInterval(function () {
-      if (!stopWatchState) {
-        milliseconds = milliseconds < 9 ? `0` + `${++milliseconds}` : ++milliseconds;
-        if (milliseconds > 59) {
-            milliseconds = 0;
-            second = second < 9 ? `0`+`${++second}` : ++second;
-            if (second > 59) {
-              second = 0;
-              minute = minute < 9 ? `0`+`${++minute}` : ++minute;
-            }
-          }
-        $display.textContent = `${minute}:${second}:${milliseconds}`;
-      }
-    }, 10);
-
-    function stopWatch({ target }) {
-      if (!stopWatchState) {
+    function stopWatch() {
+      if (stopWatchState) {
         $control.textContent = 'Start';
         clearInterval(timer);
+        stopWatchState = false;
+      } else {
+        $control.textContent = 'Stop';
+        timer = setInterval(function () {
+          ++milliseconds;
+          if (milliseconds > 59) {
+            milliseconds = 0;
+            ++second;
+            if (second > 59) {
+              second = 0;
+              ++minute;
+            }
+          }
+            
+          $display.textContent = `${O(minute)}:${O(second)}:${O(milliseconds)}`;
+        }, 10);
         stopWatchState = true;
       }
-
-      $control.textContent = 'Stop';
-      timer;
-      stopWatchState = false;
     }
 
     $control.addEventListener('click', stopWatch);

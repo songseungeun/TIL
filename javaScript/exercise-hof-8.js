@@ -5,6 +5,7 @@ let todos = [
 ];
 
 function countCompletedTodos() {
+  // indexOf
   
 }
 

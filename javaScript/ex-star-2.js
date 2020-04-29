@@ -20,4 +20,4 @@ function starTree(row) {
   return console.log(result);
 }
 
-starTree(10);
+starTree(20);

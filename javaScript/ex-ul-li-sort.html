@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ul li로 sort 연습해보기</title>
+</head>
+<body>
+  <ul class="userList">
+    <li><span class="name1">라</span></li>
+    <li><span class="name">가</span></li>
+    <li><span class="name">다</span></li>
+    <li><span class="name">마</span></li>
+    <li><span class="name">나</span></li>
+  </ul>
+
+  <script>
+    const $userList = document.querySelector('.userList');
+
+    function addElement () {
+      let newList = document.createElement('li');
+      let newContent = document.createTextNode('하');
+      newList.appendChild(newContent);
+    }
+
+    // console.log($userList.children);
+    // $userList.appendChild(document.createElement('li'));
+
+    // [...$userList.children].forEach(e => {
+    //   console.log(e.firstChild.textContent);
+
+    // });
+
+    let currentList = document.getElementById('name1');
+    document.body.insertBefore(newList, currentList);
+
+  </script>
+</body>
+</html>

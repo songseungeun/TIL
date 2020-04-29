@@ -5,7 +5,8 @@ let todos = [
 ];
 
 function toggleCompletedAll() {
-  return todos = todos.forEach( todo => {...todo.completed, todo.completed:true } )
+  // return todos = todos.map( todo => { ...todo, completed:todo.completed } )
+  todos = todos.map( todo => { ...todo, completed: todo.completed });
 }
 
 toggleCompletedAll();
