@@ -1,0 +1,23 @@
+{
+  "RealtimeCityAir":{
+    "list_total_count":25,
+    "RESULT":{
+      "CODE":"INFO-000",
+      "MESSAGE":"정상 처리되었습니다"
+    },
+    "row":[{
+      "MSRDT":"202005181100",
+      "MSRRGN_NM":"도심권",
+      "MSRSTE_NM":"중구",
+      "PM10":70.0,
+      "PM25":51.0,
+      "O3":0.021,
+      "NO2":0.035,
+      "CO":0.7,
+      "SO2":0.003,
+      "IDEX_NM":"보통",
+      "IDEX_MVL":76.0,
+      "ARPLT_MAIN":"PM25"
+    }]
+  }
+}

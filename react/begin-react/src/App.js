@@ -8,10 +8,6 @@ function countActiveUsers(users) {
 }
 
 const initialState = {
-  inputs: {
-    username: "",
-    email: "",
-  },
   users: [
     {
       id: 1,
