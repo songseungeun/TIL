@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  const x = 1;
+
+  function outer() {
+    const x = 10;
+    const inner = function () {
+      console.log(x);
+    };
+    return inner;
+  }
+
+  const innerFunc = outer();
+  innerFunc();
+
+</script>
+</html>
