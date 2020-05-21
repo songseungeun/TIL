@@ -11,9 +11,10 @@ const keyQuery = "api_key=10923b261ba94d897ac6b81148314a3f";
 //참고해서 사용해보세요
 export const movies = {
   getMovie: (id) =>
-    api.get(`movie/now_playing?${keyQuery}`, {
+    api.get(`movie/${id}?${keyQuery}`, {
       params: { append_to_response: "videos" },
     }),
+  // page = 1로 초기화 한 것
   getPopular: (page = 1) =>
     api.get(`movie/popular?${keyQuery}&page=${page}`).then((r) => {
       return r.data;
