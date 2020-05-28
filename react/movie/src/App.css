@@ -22,13 +22,13 @@ body *{
   font-size: 22px;
 }
 .nav {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 }
 .nav li {
-  width: calc(25% - 20px);
+  width: calc(20% - 20px);
   float: left;
-  margin: 10px;
+  margin: 7px;
   background-color: #ddd;
 }
 .nav li a {

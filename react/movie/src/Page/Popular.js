@@ -41,7 +41,7 @@ const NowPlaying = () => {
   // console.log(state.movieState);
   return (
     <>
-      <h2>NowPlaying</h2>
+      <h2>Popular</h2>
       <ul className="movie-list clearfix">
         {state.movieState.map(
           ({

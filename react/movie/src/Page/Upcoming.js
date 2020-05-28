@@ -9,52 +9,29 @@ const Upcoming = () => {
 
   useEffect(() => {
     const movieFunc = async () => {
-      try {
-        dispatch({ type: "LOADING" });
-        let movieData = await movies.getUpcoming();
-        // console.log(movieData.results);
-        if (movieData.status === 200) {
-          dispatch({ type: "SUCCESS", data: movieData.data.results });
-        } else {
-          dispatch({
-            type: "ERROR",
-            error: {
-              state: true,
-              message: movieData.statusText,
-            },
-          });
-        }
-      } catch (error) {
-        dispatch({
-          type: "ERROR",
-          error: {
-            state: true,
-            message: error.message,
-          },
-        });
-      }
+      dispatch({ type: "LOADING" });
+      let movieData = await movies.getUpcoming();
+      // console.log(movieData);
+      // console.log(movieData.results);
+
+      dispatch({ type: "SUCCESS", data: movieData.results });
     };
 
     movieFunc();
   }, []);
-  console.log(state);
+
+  console.log(state.movieState);
 
   return (
     <>
       <h2>Upcoming</h2>
-      {/* <ul className="movie-list clearfix">
+      <ul className="movie-list clearfix">
         {state.movieState.map(
-          ({
-            id,
-            title,
-            release_date,
-            poster_path,
-            overview,
-            vote_average,
-          }) => (
-            <Link to={"/Upcoming/" + id}>
+          ({ id, title, release_date, poster_path, vote_average }) => (
+            <Link to={"/Upcoming/" + id} key={`link` + id}>
               <li key={id} className="movie">
                 <h4>{title}</h4>
+                <i className="fas fa-star-of-life"></i>
                 <em>{vote_average}</em>
                 <img
                   className="movie_img"
@@ -66,7 +43,7 @@ const Upcoming = () => {
             </Link>
           )
         )}
-      </ul> */}
+      </ul>
     </>
   );
 };
