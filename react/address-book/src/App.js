@@ -1,4 +1,10 @@
-import React, { useState, useRef, useMemo } from "react";
+import React, {
+  useState,
+  useRef,
+  useMemo,
+  useCallback,
+  useReducer,
+} from "react";
 import { createGlobalStyle } from "styled-components";
 import CreateUser from "./CreateUser";
 import UserList from "./UserList";
@@ -34,67 +40,113 @@ const GlobalStyle = createGlobalStyle`
     font-size: 18px;
   }
 `;
+
 function countActiveUsers(users) {
   console.log("즐겨찾기 사용자 수를 세는 중...");
   return users.filter((user) => user.active).length;
 }
 
-function App() {
-  const [inputs, setInputs] = useState({
+function reducer(state, action) {
+  switch (action.type) {
+    case "CHANGE_INPUT":
+      return {
+        ...state,
+        inputs: {
+          ...state.inputs,
+          [action.name]: action.value,
+        },
+      };
+    case "CREATE_USERS":
+      return {
+        inputs: initialState.inputs,
+        users: [...state.users, action.user],
+      };
+    default:
+      throw new Error("Unhandled action");
+  }
+}
+
+const initialState = {
+  inputs: {
     username: "",
     email: "",
-  });
-
-  const { username, email } = inputs;
-
-  const onChange = ({ target }) => {
-    const { value, name } = target;
-    setInputs({ ...inputs, [name]: value });
-  };
-
-  const initialState = [
+  },
+  users: [
     {
       id: 1,
       username: "song",
       email: "song@gmail.com",
       active: false,
     },
-  ];
+  ],
+};
 
-  const [users, setUsers] = useState(initialState);
+function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { users } = state;
+  const { username, email } = state.inputs;
+  // console.log(state);
 
-  const createId = useRef(4);
-
-  const onCreate = () => {
-    const user = {
-      id: createId.current,
-      username,
-      email,
-      active: false,
-    };
-    setUsers([...users, user]);
-    setInputs({
-      username: "",
-      email: "",
+  const onChange = useCallback((e) => {
+    const { name, value } = e.target;
+    dispatch({
+      type: "CHANGE_INPUT",
+      name,
+      value,
     });
+  }, []);
 
-    createId.current += 1;
-  };
+  const onCreate = useCallback(() => {
+    dispatch({
+      type: "CREATE_USERS",
+      user: {
+        id: 4,
+        username,
+        email,
+      },
+    });
+  }, [username, email]);
 
-  const onToggle = (id) => {
-    setUsers(
-      users.map((user) =>
-        user.id === id ? { ...user, active: !user.active } : user
-      )
-    );
-    console.log(users);
-  };
+  // console.log(onCreate);
+  // console.log(username);
 
-  const removeUser = (id) => {
-    setUsers(users.filter((user) => user.id !== id));
-  };
+  // const [inputs, setInputs] = useState();
 
-  const count = useMemo(() => countActiveUsers(users), [users]);
+  // const { username, email } = inputs;
+
+  // const onChange = useCallback(
+  //   ({ target }) => {
+  //     const { value, name } = target;
+  //     setInputs({ ...inputs, [name]: value });
+  //   },
+  //   [inputs]
+  // );
+
+  // const createId = useRef(4);
+
+  //   createId.current += 1;
+  // }, [username, email, users]);
+
+  // const onToggle = useCallback(
+  //   (id) => {
+  //     setUsers(
+  //       users.map((user) =>
+  //         user.id === id ? { ...user, active: !user.active } : user
+  //       )
+  //     );
+  //     console.log(users);
+  //   },
+  //   [users]
+  // );
+
+  // const removeUser = useCallback(
+  //   (id) => {
+  //     setUsers(users.filter((user) => user.id !== id));
+  //   },
+  //   [users]
+  // );
+
+  // const count = useMemo(() => countActiveUsers(users), [users]);
 
   return (
     <>
@@ -108,12 +160,12 @@ function App() {
           onCreate={onCreate}
         />
         <div className="fav-length">
-          즐겨찾기 한 사람은 <strong>{count}명</strong> 입니다.
+          즐겨찾기 한 사람은 <strong>0명</strong> 입니다.
         </div>
-        <UserList users={users} removeUser={removeUser} onToggle={onToggle} />
+        <UserList users={users} />
       </div>
     </>
   );
 }
 
-export default App;
+export default React.memo(App);
