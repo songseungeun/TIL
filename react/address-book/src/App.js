@@ -58,14 +58,6 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case "CHANGE_INPUT":
-      return {
-        ...state,
-        inputs: {
-          ...state.inputs,
-          [action.name]: action.value,
-        },
-      };
     case "CREATE_USER":
       return {
         inputs: initialState.inputs,
