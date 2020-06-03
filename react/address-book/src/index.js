@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
+// import App from "./App";
 import ContextSample from "./ContextSample";
+import * as serviceWorker from "./serviceWorker";
+// import ContextSample from "./ContextSample";
 
 ReactDOM.render(<ContextSample />, document.getElementById("root"));
 
