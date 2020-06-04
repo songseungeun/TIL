@@ -1,4 +1,10 @@
-import React, { useRef, useMemo, useCallback, useReducer } from "react";
+import React, {
+  useRef,
+  useMemo,
+  useCallback,
+  useReducer,
+  createContext,
+} from "react";
 import { createGlobalStyle } from "styled-components";
 import CreateUser from "./CreateUser";
 import UserList from "./UserList";
@@ -81,62 +87,26 @@ function reducer(state, action) {
   }
 }
 
+export const UserDispatch = createContext(null);
+
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [form, onChange, reset] = useInputs({
-    username: "",
-    email: "",
-  });
-  const { username, email } = form;
-  const nextId = useRef(4);
   const { users } = state;
 
-  const onCreate = useCallback(() => {
-    dispatch({
-      type: "CREATE_USER",
-      user: {
-        id: nextId.current,
-        username,
-        email,
-      },
-    });
-    nextId.current += 1;
-    reset();
-  }, [username, email, reset]);
-
-  const onToggle = useCallback((id) => {
-    dispatch({
-      type: "TOGGLE_USER",
-      id,
-    });
-  }, []);
-
-  const removeUser = useCallback((id) => {
-    dispatch({
-      type: "REMOVE_USER",
-      id,
-    });
-  }, []);
-
   const count = useMemo(() => countActiveUsers(users), [users]);
-
+  console.log(state);
   return (
-    <>
+    <UserDispatch.Provider value={dispatch}>
       <GlobalStyle />
       <div className="wrapper">
         <h1>Address Book</h1>
-        <CreateUser
-          username={username}
-          email={email}
-          onChange={onChange}
-          onCreate={onCreate}
-        />
+        <CreateUser />
         <div className="fav-length">
           즐겨찾기 한 사람은 <strong>{count}명</strong> 입니다.
         </div>
-        <UserList users={users} onToggle={onToggle} removeUser={removeUser} />
+        <UserList users={users} />
       </div>
-    </>
+    </UserDispatch.Provider>
   );
 }
 

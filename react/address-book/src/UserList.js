@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useContext } from "react";
 import styled, { css } from "styled-components";
 import { MdStar } from "react-icons/md";
+import { UserDispatch } from "./App";
 
 const UserListBlock = styled.div`
   .userlist {
@@ -36,25 +37,34 @@ const Favorite = styled.div`
     `}
 `;
 
-function UserList({ users, removeUser, onToggle }) {
+function UserList({ users }) {
   // useEffect(() => {
   //   console.log("...loading 중 입니다");
   //   return () => {
   //     console.log("컴포넌트가 화면에서 사라짐");
   //   };
   // }, [users]);
+
+  const dispatch = useContext(UserDispatch);
+
   return (
     <>
       <UserListBlock>
         <ul className="userlist">
           {users.map(({ id, username, email, active }) => (
             <li key={id} id={id}>
-              <Favorite active={active} onClick={() => onToggle(id)}>
+              <Favorite
+                active={active}
+                onClick={() => dispatch({ type: "TOGGLE_USER", id })}
+              >
                 <MdStar />
               </Favorite>
               <strong>{username}</strong>
               <em>{email}</em>
-              <button className="remove-btn" onClick={() => removeUser(id)}>
+              <button
+                className="remove-btn"
+                onClick={() => dispatch({ type: "REMOVE_USER", id })}
+              >
                 X
               </button>
             </li>
