@@ -7,6 +7,7 @@ function About({ location }) {
   });
 
   const detail = query.detail === "true";
+  parseInt(query.id, 10);
 
   return (
     <div>
