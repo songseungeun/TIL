@@ -1,5 +1,28 @@
 import React, { useEffect } from "react";
 import { useNowState, useNowDispatch, getNow } from "./MoviesContext";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+// import SubRouter from "./Router/SubRouter";
+
+const MovieList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const MovieItem = styled.li`
+  width: calc(25% - 20px);
+
+  padding: 10px;
+  margin: 10px;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  img {
+    width: 100%;
+  }
+`;
 
 const Movies = () => {
   useEffect(() => {
@@ -18,13 +41,28 @@ const Movies = () => {
   if (error) return <div>에러.</div>;
   if (!movieList) return null;
 
-  console.log(movieList);
+  // console.log(movieList);
 
   return (
-    <div>
+    <>
       <h1>Now Playing</h1>
-      <p>이 곳은 홈입니다.</p>
-    </div>
+      <MovieList>
+        {movieList.map(({ id, title, poster_path }) => (
+          <>
+            <MovieItem id={id} key={id}>
+              <Link to={"/now/" + id} key={`link` + id}>
+                <strong>{title}</strong>
+                <img
+                  className="movie_img"
+                  src={`https://image.tmdb.org/t/p/w500/` + poster_path}
+                  alt={title}
+                />
+              </Link>
+            </MovieItem>
+          </>
+        ))}
+      </MovieList>
+    </>
   );
 };
 

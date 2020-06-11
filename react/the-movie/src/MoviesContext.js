@@ -13,6 +13,21 @@ const initialState = {
     data: null,
     error: null,
   },
+  up: {
+    loading: false,
+    data: null,
+    error: null,
+  },
+  detail: {
+    loading: false,
+    data: null,
+    error: null,
+  },
+  search: {
+    loading: false,
+    data: null,
+    error: null,
+  },
 };
 
 const loadingState = {
@@ -48,22 +63,67 @@ function moviesReducer(state, action) {
     case "GET_NOW_ERROR":
       return {
         ...state,
-        now: error(action.error),
+        top: error(action.error),
       };
     case "GET_TOP":
       return {
         ...state,
-        now: loadingState,
+        top: loadingState,
       };
     case "GET_TOP_SUCCESS":
       return {
         ...state,
-        now: success(action.data),
+        top: success(action.data),
       };
     case "GET_TOP_ERROR":
       return {
         ...state,
-        now: error(action.error),
+        top: error(action.error),
+      };
+    case "GET_UP":
+      return {
+        ...state,
+        up: loadingState,
+      };
+    case "GET_UP_SUCCESS":
+      return {
+        ...state,
+        up: success(action.data),
+      };
+    case "GET_UP_ERROR":
+      return {
+        ...state,
+        up: error(action.error),
+      };
+    case "GET_DETAIL":
+      return {
+        ...state,
+        detail: loadingState,
+      };
+    case "GET_DETAIL_SUCCESS":
+      return {
+        ...state,
+        detail: success(action.data),
+      };
+    case "GET_DETAIL_ERROR":
+      return {
+        ...state,
+        detail: error(action.error),
+      };
+    case "GET_SEARCH":
+      return {
+        ...state,
+        search: loadingState,
+      };
+    case "GET_SEARCH_SUCCESS":
+      return {
+        ...state,
+        search: success(action.data),
+      };
+    case "GET_SEARCH_ERROR":
+      return {
+        ...state,
+        search: error(action.error),
       };
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
@@ -117,5 +177,36 @@ export async function getTop(dispatch) {
     dispatch({ type: "GET_TOP_SUCCESS", data: response.results });
   } catch (e) {
     dispatch({ type: "GET_TOP_ERROR", error: e });
+  }
+}
+
+export async function getUp(dispatch) {
+  dispatch({ type: "GET_UP" });
+  try {
+    const response = await movies.getUpcoming();
+    dispatch({ type: "GET_UP_SUCCESS", data: response.results });
+  } catch (e) {
+    dispatch({ type: "GET_UP_ERROR", error: e });
+  }
+}
+
+export async function getDetail(dispatch, id) {
+  dispatch({ type: "GET_DETAIL" });
+  try {
+    const response = await movies.getMovie(id);
+    // console.log(response.data);
+    dispatch({ type: "GET_DETAIL_SUCCESS", data: response.data });
+  } catch (e) {
+    dispatch({ type: "GET_DETAIL_ERROR", error: e });
+  }
+}
+
+export async function getSearch(dispatch, keyword) {
+  dispatch({ type: "GET_SEARCH" });
+  try {
+    const response = await movies.searchMovies(keyword);
+    dispatch({ type: "GET_SEARCH_SUCCESS", data: response.data.results });
+  } catch (e) {
+    dispatch({ type: "GET_SEARCH_ERROR", error: e });
   }
 }
