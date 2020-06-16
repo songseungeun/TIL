@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useNowState, useNowDispatch, getNow } from "./MoviesContext";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-// import SubRouter from "./Router/SubRouter";
 
 const MovieList = styled.ul`
   display: flex;

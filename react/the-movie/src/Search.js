@@ -46,27 +46,12 @@ const Search = () => {
 
   const state = useNowState();
   const dispatch = useNowDispatch();
-  // console.log(state.search);
+
   const { data: searchList, loading, error } = state.search;
 
-  function onSubmit(e) {
-    e.preventDefault();
-    fetchData();
-    const keywordItem = {
-      id: nextId.current,
-      keyword,
-    };
-    setKeywordList([...keywordList, keywordItem]);
-    NowKeyword(keyword);
-    nextId.current += 1;
-    setKeyword("");
-  }
-
-  const nextId = useRef(3);
-
+  // 키워드 클릭 했을 때 검색
   async function KeySearch(keyword) {
-    fetchData(keyword);
-    NowKeyword(keyword);
+    await fetchData(keyword);
   }
 
   const KeyRemove = (id) => {
@@ -81,10 +66,22 @@ const Search = () => {
     }
   }
 
-  const NowKeyword = (keyword) => {
-    console.log(keyword);
-  };
-  // console.log(keywordList);
+  function onSubmit(e) {
+    e.preventDefault();
+
+    fetchData(keyword);
+    const keywordItem = {
+      id: nextId.current,
+      keyword,
+    };
+
+    setKeywordList([...keywordList, keywordItem]);
+    nextId.current += 1;
+    setKeyword("");
+  }
+
+  const nextId = useRef(3);
+
   if (loading) return <div>로딩중..</div>;
   if (error) return <div>에러.</div>;
   // if (!searchList) return null;
@@ -134,8 +131,6 @@ const RemoveBtn = styled.div`
 `;
 
 const SearchHistory = ({ keywordList, KeyRemove, KeySearch }) => {
-  // console.log(keywordList);
-
   return (
     <div>
       <SearchHistoryBlock>

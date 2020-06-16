@@ -6,7 +6,6 @@ import About from "../About";
 import TopBoxOffice from "../TopBoxOffice";
 import Upcoming from "../Upcoming";
 import Search from "../Search";
-// import SubRouter from "../Router/SubRouter";
 import Detail from "../Detail";
 
 const MainRouter = () => {
@@ -19,7 +18,6 @@ const MainRouter = () => {
       <Route exact path="/search" component={Search} />
       <Route exact path="/about" component={About} />
       <Route exact path="/now/:id" component={Detail} />
-      {/* <SubRouter /> */}
       <Route
         render={({ location }) => (
           <div>

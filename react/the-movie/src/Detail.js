@@ -10,10 +10,7 @@ const Detail = ({ match, history }) => {
     history.goBack();
   };
 
-  // console.log(match);
   const { id } = match.params;
-
-  // console.log(id);
 
   const state = useNowState();
   const dispatch = useNowDispatch();
@@ -26,8 +23,6 @@ const Detail = ({ match, history }) => {
   if (loading) return <div>로딩중..</div>;
   if (error) return <div>에러.</div>;
   if (!movieDetail) return null;
-
-  // console.log(movieDetail);
 
   const { title, poster_path, overview } = movieDetail;
 
