@@ -11,47 +11,53 @@ const DECREASE = "DECREASE";
 const CHANGE_TEXT = "CHANGE_TEXT";
 const ADD_TO_LIST = "ADD_TO_LIST";
 
-function increase() {
+const increase = () => {
   return {
     type: INCREASE,
   };
-}
+};
 
-const decrease = () => ({
-  type: DECREASE,
-});
+const decrease = () => {
+  return {
+    type: DECREASE,
+  };
+};
 
-const changeText = (text) => ({
-  type: CHANGE_TEXT,
-  text,
-});
+const changeText = (text) => {
+  return {
+    type: CHANGE_TEXT,
+    text,
+  };
+};
 
-const addToList = (item) => ({
-  type: ADD_TO_LIST,
-  item,
-});
+const addToList = (item) => {
+  return {
+    type: ADD_TO_LIST,
+    item,
+  };
+};
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case INCREASE:
+    case "INCREASE":
       return {
         ...state,
         counter: state.counter + 1,
       };
-    case DECREASE:
+    case "DECREASE":
       return {
         ...state,
         counter: state.counter - 1,
       };
-    case CHANGE_TEXT:
+    case "CHANGE_TEXT":
       return {
         ...state,
         text: action.text,
       };
-    case ADD_TO_LIST:
+    case "ADD_TO_LIST":
       return {
         ...state,
-        list: state.list.concat(action.item),
+        list: [...state.list, action.item],
       };
     default:
       return state;
@@ -62,14 +68,14 @@ const store = createStore(reducer);
 
 console.log(store.getState());
 
-const listener = () => {
+const listner = () => {
   const state = store.getState();
   console.log(state);
 };
 
-const unsubscribe = store.subscribe(listener);
+const unsubscribe = store.subscribe(listner);
 
 store.dispatch(increase());
 store.dispatch(decrease());
-store.dispatch(changeText("wow"));
-store.dispatch(addToList({ id: 1, text: "song" }));
+store.dispatch(changeText("song"));
+store.dispatch(addToList({ id: 1, text: "aaa", complete: true }));
