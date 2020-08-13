@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>event delegation</title>
+  <style>
+    #fruits {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+    }
+    #fruits li {
+      width: 100px;
+      cursor: pointer;
+    }
+    #fruits .active {
+      color: red;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul id="fruits">
+      <li id="apple" class="active">Apple</li>
+      <li id="banana">Banana</li>
+      <li id="orange">Orange</li>
+    </ul>
+  </nav>
+  <div>selected item : <em class="msg">apple</em></div>
+  <script>
+    const $fruits = document.getElementById('fruits');
+    const $msg = document.querySelector('.msg');
+
+    function activate({ target }) {
+      if (!target.matches('#fruits > li')) return;
+
+      [...$fruits.children].forEach($fruit => {
+        $fruit.classList.toggle('active', $fruit === target);
+        $msg.textContent = target.id;
+      });
+    }
+
+    $fruits.onclick = activate;
+  </script>
+</body>
+</html>
