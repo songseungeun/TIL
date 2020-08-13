@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>event dispatch</title>
+</head>
+<body>
+  <button class="btn">Click me</button>
+  <script>
+    const $button = document.querySelector('.btn');
+
+    $button.addEventListener('click', e => {
+      console.log(e);
+      alert(`${e} Clicked!`);
+    });
+
+    const customEvent = new MouseEvent('click');
+
+    $button.dispatchEvent(customEvent);
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>custom event</title>
+</head>
+<body>
+  <input type="text" class="inputText" readonly>
+  <button type="button" class="btn">Toggle Message</button>
+  <script>
+    const $input = document.querySelector('.inputText');
+    const $btn = document.querySelector('.btn');
+
+    $input.addEventListener('setDefaultMessage', e => {
+      $input.value = $input.value ? '' : e.detail.message;
+    });
+
+    const customEvent = new CustomEvent('setDefaultMessage', {
+      detail: {
+        message: 'sample message'
+      }
+    });
+
+    $btn.addEventListener('click', e => {
+      $input.dispatchEvent(customEvent);
+    });
+  </script>
+</body>
+</html>
