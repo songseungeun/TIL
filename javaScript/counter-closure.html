@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="counterState">0</div>
+  <button id="increaseBtn">+</button>
+  <button id="decreaseBtn">-</button>
+
+  <script>
+    const $counterState = document.querySelector('#counterState');
+    const $increaseBtn = document.querySelector('#increaseBtn');
+    const $decreaseBtn = document.querySelector('#decreaseBtn');
+
+
+    const counter = (function() {
+
+      let num = 0;
+
+      return {
+        increase() {
+          ++num;
+          counter.render();
+        },
+        decrease() {
+          num > 0 ? --num: 0;
+          counter.render();
+        },
+        render() {
+          $counterState.innerText = num;
+         }
+      };
+    }());
+
+    $increaseBtn.addEventListener('click', counter.increase);
+    $decreaseBtn.addEventListener('click', counter.decrease);
+
+  </script>
+</body>
+</html>

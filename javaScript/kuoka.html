@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+    <!--@layout(/layout/basic/layout.html)-->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!--@css(/137lab/css/gnb-white.css)-->
+<style>
+    #container {
+        width: 100% !important;
+    }
+    #contents {
+        float: none;
+        width: 100% !important;
+        min-height: 800px;
+        margin: 0 auto;
+    }
+    #pm-code-box {
+        margin: 0 auto;
+        padding: 80px;
+        background: #FBF3EC;
+    }
+    #pm-code-box > div {
+        width: 1280px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    #pm-code-box span > * {
+        display: inline-block;
+        color: #A26F6F;
+        vertical-align: baseline;
+    }
+    #pm-code-box span input {
+        height: 30px;
+        margin: 0px 30px;
+        background: rgba(0, 0, 0, 0);
+        border: 1px solid;
+        font-size: 22px;
+        width: 110px;
+        padding: 3px 10px;
+    }
+    #pm-code-box button {
+        display: block;
+        margin: 30px auto;
+        font-size: 18px;
+        padding: 10px 60px;
+        border: 1px solid #707070;
+        cursor: pointer;
+        background-color: #707070;
+        color: #fff;
+    }
+    #pm-code-box button:disabled {
+      color: #707070;
+        background: #fff;
+    }
+    #fm-prod-list {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="bg-cover" style="max-width:100%; margin:0 auto; height:750px; background-image:url(/SkinImg/product-top-title5.jpg); background-size:cover;">
+    <div style="width:1260px; padding-top:60px; margin:0 auto;">
+        <h1 class="fs" style="font-size:46px; letter-spacing:1px; color:#fff;">
+            KUOCA<br>INVITES YOU!
+            </h3>
+            <h2 style="font-size: 30px; color: #fff; margin: 30px 0 15px;">1년에 단 하루!</h1>
+        <div style="color:#fff; font-size: 20px; line-height: 2em;">
+            <p>쿠오카 공식몰</p>
+            <p>회원에게만 주어지는</p>
+            <p style="border-bottom: 1px solid #fff; display: inline-block;">온라인 패밀리 세일</p>
+        </div>
+    </div>
+</div>
+<div id="pm-code-box">
+    <div>
+        <span>
+            <h1>PROMOTION CODE :</h1>
+            <input id="pm-code-input" type="text" name="promotion" required value="KUOKA20">
+        </span>
+        <button id="confirm-code">확인</button>
+    </div>
+</div>
+<div>
+    <div id="fm-prod-list" style="width:100%; margin:10px auto;">
+        <div style="width:1280px; margin:0 auto; ">
+            <div style="width:311px; float:left;   margin:0 12px 5px 0; background:#FBF3EC; text-align:center; padding-bottom:60px; position:relative;">
+                <div style=" width:311px; text-align:center; ">
+                    <img src="/SkinImg/product/toner-nuki.png" width="300" style="padding-top:55px;">
+                </div>
+                <div style="width:311px; float:left; padding-bottom:20px;">
+                    <p class="fs" style="font-size:26px; padding-bottom:12px; padding-top:15px; letter-spacing:1.2px;">
+                        TONER BLEND
+                    </p>
+                    <span style="color:#949495; font-size:20px; ">
+                        130ml / <p style="text-decoration: line-through; margin-bottom: 0; display: inline;">55,000원</p>
+                        <div style="font-size: 24px; display: block; margin: 15px 0 20px">
+                            <p style="display:inline;">44,000원</p>
+                            <p style="display:inline; color: #C47179; margin-left: 15px; font-size: 20px">20% Off</p>
+                        </div>
+                    </span>
+                    <div style="background-color: #D6B09D; color: #fff; font-size: 16px;border-radius: 20px; display: inline-block;padding: 8px 15px;">
+                        피부 정화
+                    </div>
+                    <p class="fsk" style="font-size:18px; line-height:35px;   width:290px; margin:0 auto; padding:10px 0 0 0;">
+                        * 미백, 보습, 항산화 원료 함유
+                    <p class="fsk" style="padding:10px 0 20px; font-size:18px; line-height:35px;">
+                        화이트 트러플,바다포도<br>사카로미세스</p><br>
+                    </p>
+                    <a href="/product/detail.html?product_no=16" class="big-btn red-btn -mov fsk">자세히
+                        보기 <i class="xi-angle-right-thin"></i></a>
+                </div>
+            </div>
+            <div style="width:311px; float:left;   margin:0 12px 5px 0; background:#FBF3EC; text-align:center; padding-bottom:60px; position:relative;">
+                <div style="width:100px; height:100px; background:#C47179; text-align:center; position:absolute; top:20px; left:20px; border-radius:70px;">
+                    <p class="fs" style="font-size:18px; color:#fff;  padding-top:38px; ">
+                        NEW</p>
+                </div>
+                <div style=" width:311px; text-align:center; ">
+                    <img src="/SkinImg/product/repair-nuki.png" width="300" style="padding-top:55px;">
+                </div>
+                <div style="width:311px; padding-bottom:20px;">
+                    <p class="fs" style="font-size:26px; padding-bottom:12px; padding-top:15px; letter-spacing:1.2px;">
+                        REPAIR BLEND
+                    </p>
+                    <span style="color:#949495; font-size:20px; ">
+                        30ml / <p style="text-decoration: line-through; margin-bottom: 0; display: inline;">120,000원</p>
+                        <div style="font-size: 24px; display: block; margin: 15px 0 20px">
+                            <p style="display:inline;">96,000원</p>
+                            <p style="display:inline; color: #C47179; margin-left: 15px; font-size: 20px">20% Off</p>
+                        </div>
+                    </span>
+                    <div style="background-color: #D6B09D; color: #fff; font-size: 16px;border-radius: 20px; display: inline-block;padding: 8px 15px;">
+                        항노화 케어
+                    </div>
+                    <p class="fsk" style="font-size:18px; line-height:35px;   width:290px; margin:0 auto; padding:10px  0 0 0;">
+                        * 미백 & 주름 개선 기능성 인증
+                    <p class="fsk" style="padding:10px 0 20px; font-size:18px; line-height:35px;">
+                        화이트 트러플<br>EFG, FGF</p>
+                    <br>
+                    </p>
+                    <a href="/product/detail.html?product_no=20" class="big-btn red-btn -mov fsk">자세히
+                        보기 <i class="xi-angle-right-thin"></i></a>
+                </div>
+            </div>
+            <div style="width:311px; float:left;   margin:0 12px 5px 0; background:#FBF3EC; text-align:center; padding-bottom:60px; position:relative;">
+                <div style=" width:311px; text-align:center; ">
+                    <img src="/SkinImg/product/serum-nuki.png" width="300" style="padding-top:55px; margin: 10px 0 -10px 0;">
+                </div>
+                <div style="width:311px; padding-bottom:20px;">
+                    <p class="fs" style="font-size:26px; padding-bottom:12px; padding-top:15px; letter-spacing:1.2px;">
+                        SERUM BLEND
+                    </p>
+                    <span style="color:#949495; font-size:20px; ">
+                        30ml / <p style="text-decoration: line-through; margin-bottom: 0; display: inline;">110,000원</p>
+                        <div style="font-size: 24px; display: block; margin: 15px 0 20px">
+                            <p style="display:inline;">88,000원</p>
+                            <p style="display:inline; color: #C47179; margin-left: 15px; font-size: 20px">20% Off</p>
+                        </div>
+                    </span>
+                    <div style="background-color: #D6B09D; color: #fff; font-size: 16px;border-radius: 20px; display: inline-block;padding: 8px 15px;">
+                        항산화 효과
+                    </div>
+                    <p class="fsk" style="font-size:18px; line-height:35px;   width:290px; margin:0 auto; padding:10px  0 0 0;">
+                        * 미백 & 주름 개선 기능성 인증
+                    <p class="fsk" style="padding:10px 0 20px; font-size:18px; line-height:35px;">
+                        화이트 트러플, 차가버섯<br>스쿠알란</p><br>
+                    </p>
+                    <a href="/product/detail.html?product_no=10" class="big-btn red-btn -mov fsk">자세히
+                        보기 <i class="xi-angle-right-thin"></i></a>
+                </div>
+            </div>
+            <div style="width:311px; float:left;   margin:0 0 5px 0; background:#FBF3EC; text-align:center; padding-bottom:60px; position:relative;">
+                <div style=" width:311px; text-align:center; ">
+                    <img src="/SkinImg/product/cream-nuki.png" width="300" style="padding-top:55px; margin: 10px 0 -10px 0;">
+                </div>
+                <div style="width:311px; padding-bottom:20px;">
+                    <p class="fs" style="font-size:26px; padding-bottom:12px; padding-top:15px; letter-spacing:1.2px;">
+                        CREAM BLEND
+                    </p>
+                    <span style="color:#949495; font-size:20px; ">
+                        40ml / <p style="text-decoration: line-through; margin-bottom: 0; display: inline;">120,000원</p>
+                    <div style="font-size: 24px; display: block; margin: 15px 0 20px">
+                        <p style="display:inline;">96,000원</p>
+                        <p style="display:inline; color: #C47179; margin-left: 15px; font-size: 20px">20% Off</p>
+                    </div>
+                    </span>
+                    <div style="background-color: #D6B09D; color: #fff; font-size: 16px;border-radius: 20px; display: inline-block;padding: 8px 15px;">
+                        탄력케어
+                    </div>
+                    <p class="fsk" style="font-size:18px; line-height:35px;   width:290px; margin:0 auto; padding:10px  0 0 0;">
+                        *주름 개선 기능성 인증
+                    <p class="fsk" style="padding:10px 0 20px; font-size:18px; line-height:35px;">
+                        화이트 트러플, 펩타이드<br>콜라겐, 코엔자임큐텐</p><br>
+                    </p>
+                    <a href="/product/detail.html?product_no=11" class="big-btn red-btn -mov fsk">자세히
+                        보기 <i class="xi-angle-right-thin"></i></a>
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    <script>
+
+        const $pmCodeInput = document.querySelector('#pm-code-input');
+        const $confirmCode = document.querySelector('#confirm-code');
+        const $pmCodeBox = document.querySelector('#pm-code-box');
+        const $fmProdList = document.querySelector('#fm-prod-list');
+
+        $pmCodeInput.onkeyup = e => {
+          if (e.target.value !== 'KUOKA20') $confirmCode.disabled = true;
+          else $confirmCode.disabled = false;
+        }
+
+        $confirmCode.onclick = e => {
+          $fmProdList.style.display = 'block';
+          $pmCodeBox.style.display = 'none';
+        }
+
+    </script>
+</body>
+</html>
